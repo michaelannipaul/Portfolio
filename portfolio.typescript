@@ -1,0 +1,98 @@
+import React from "react";
+import { motion } from "framer-motion";
+import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Mail, Github, Linkedin } from "lucide-react";
+
+export default function Portfolio() {
+  return (
+    <div className="min-h-screen bg-gradient-to-b from-black via-gray-900 to-black text-white">
+      {/* Hero Section */}
+      <section className="flex flex-col items-center justify-center text-center py-24 px-6">
+        <motion.h1
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="text-4xl md:text-6xl font-bold"
+        >
+          Hi, I'm <span className="text-indigo-400">Aniruddha Paul</span>
+        </motion.h1>
+        <p className="mt-6 max-w-2xl text-lg text-gray-300">
+          First Year CSE Student | Aspiring Python Developer | Storyteller
+        </p>
+        <div className="mt-8 flex gap-4">
+          <Button className="rounded-2xl px-6">View Projects</Button>
+          <Button variant="outline" className="rounded-2xl px-6">
+            Contact Me
+          </Button>
+        </div>
+      </section>
+
+      {/* About Section */}
+      <section className="py-16 px-6 max-w-5xl mx-auto">
+        <h2 className="text-3xl font-semibold mb-8 text-center">About Me</h2>
+        <Card className="bg-gray-800 border-none shadow-xl rounded-2xl">
+          <CardContent className="p-8 text-gray-300 text-lg leading-relaxed">
+            I am a passionate Computer Science student focused on mastering Python
+            and full-stack development. I enjoy building real-world projects,
+            writing creative stories, and constantly improving my technical
+            problem-solving skills.
+          </CardContent>
+        </Card>
+      </section>
+
+      {/* Projects Section */}
+      <section className="py-16 px-6 bg-gray-900">
+        <h2 className="text-3xl font-semibold mb-12 text-center">Projects</h2>
+        <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          {["Portfolio Website", "Python Automation Tool", "Short Film Project"].map(
+            (project, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.2 }}
+              >
+                <Card className="bg-gray-800 border-none shadow-lg rounded-2xl hover:scale-105 transition-transform">
+                  <CardContent className="p-6">
+                    <h3 className="text-xl font-semibold mb-4 text-indigo-400">
+                      {project}
+                    </h3>
+                    <p className="text-gray-400 text-sm">
+                      A brief description about the project goes here. You can
+                      replace this with real project details.
+                    </p>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            )
+          )}
+        </div>
+      </section>
+
+      {/* Contact Section */}
+      <section className="py-16 px-6 max-w-4xl mx-auto text-center">
+        <h2 className="text-3xl font-semibold mb-8">Get In Touch</h2>
+        <p className="text-gray-400 mb-6">
+          Feel free to reach out for collaborations or just a friendly hello 👋
+        </p>
+        <div className="flex justify-center gap-6">
+          <Button variant="outline" className="rounded-2xl">
+            <Mail className="mr-2" /> Email
+          </Button>
+          <Button variant="outline" className="rounded-2xl">
+            <Github className="mr-2" /> GitHub
+          </Button>
+          <Button variant="outline" className="rounded-2xl">
+            <Linkedin className="mr-2" /> LinkedIn
+          </Button>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="text-center py-6 text-gray-500 text-sm border-t border-gray-800">
+        © {new Date().getFullYear()} Aniruddha Paul. All rights reserved.
+      </footer>
+    </div>
+  );
+}
